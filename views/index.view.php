@@ -1,33 +1,22 @@
 <?php require 'header.php' ?>
 
     <div class="contenedor">
-        <div class="post">
-            <article>
-                <h2 class="Titulo"><a href="#">Título article</a></h2>
-                <p class="fecha">1 de Enero de 2016</p>
-                <div lcass="thumb">
-                    <a href="#">
-                        <img src="<?php echo RUTA; ?>/imagenes/1.png" alt="">
-                    </a>
-                </div>
-                <p class="extracto">Lorem ipsum, dolor sit amet consectetur adipisicing e</p>
-                <a href="#" class="container">Continuar Leyendo</a>
-            </article>
-        </div>
-
-        <div class="post">
-            <article>
-                <h2 class="Titulo"><a href="#">Título article</a></h2>
-                <p class="fecha">1 de Enero de 2022</p>
-                <div lcass="thumb">
-                    <a href="#">
-                        <img src="<?php echo RUTA; ?>/imagenes/1.png" alt="">
-                    </a>
-                </div>
-                <p class="extracto">Lorem ipsum, dolor sit amet consectetur adipisicing e</p>
-                <a href="#" class="container">Continuar Leyendo</a>
-            </article>
-        </div>
+        <?php foreach ($posts as $post): ?>
+            
+            <div class="post">
+                <article>
+                    <h2 class="Titulo"><a href="single.php?id=<?php echo $post['id']?>"><?php echo $post['titulo'] ?> </a></h2>
+                    <p class="fecha"> <?php echo $post['fecha'] ?> </p>
+                    <div lcass="thumb">
+                        <a href="single.php?id=<?php echo $post['id']?>">
+                            <img src="<?php echo RUTA; ?>/imagenes/<?php echo $post['thumb'] ?>" alt="">
+                        </a>
+                    </div>
+                    <p class="extracto"><?php echo $post['extracto'] ?></p>
+                    <a href="single.php?id=<?php echo $post['id']?>" class="container">Continuar Leyendo</a>
+                </article>
+            </div>
+        <?php endforeach; ?>
 
         <?php require 'paginacion.php'; ?>
     </div>
