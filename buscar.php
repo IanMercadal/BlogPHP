@@ -20,10 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_GET['busqueda'])) {
     if (empty($resultados)) {
         $titulo = 'No se ha encontrado';
     } else {
-        $titulo = 'Resultado de la busqueda ' . $busqueda; 
+        $titulo = 'Resultado de la busqueda: ' . $busqueda; 
     }
 } else {
-    header('Location: ' . RUTA . '/index.php');
+    header('Location: ' . RUTA . 'index.php');
 }
 
 require 'views/buscar.view.php';
